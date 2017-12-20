@@ -1,0 +1,26 @@
+.root {
+    -fx-font-size: 20px;
+    -fx-padding: 20px;
+}
+
+
+.list-cell {
+    -fx-background-color: white;
+    -fx-border-color: lightgrey;
+    -fx-border-width: 0.3px;
+}
+
+.list-cell:selected {
+    -fx-background-color: #1ac6ff;
+}
+.list-cell:filled:hover {
+    -fx-background-color: #b3ecff;
+}
+
+.list-cell:selected:hover {
+    -fx-background-color: #1ac6ff;
+}
+
+.errorText {
+    -fx-fill: red;
+}

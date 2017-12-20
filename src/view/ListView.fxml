@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:controller="controller.ListController" alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml">
+    <HBox spacing="30" alignment="CENTER">
+        <!-- categories on left side -->
+        <VBox spacing="20" alignment="TOP_CENTER">
+            <ListView fx:id="listsLw" prefHeight="500" onMouseReleased="#handleSelectList">
+                <placeholder>
+                    <Label text="No Lists"/>
+                </placeholder>
+            </ListView>
+            <HBox spacing="10">
+                <TextField fx:id="newListTf" onKeyPressed="#handleEnterList" promptText="New List" />
+                <Button fx:id="addListBtn" text="Add" onAction="#handleAddList"/>
+                <Button fx:id="removeListBtn" text="Remove" onAction="#handleRemoveList" disable="true"/>
+            </HBox>
+            <Text fx:id="dupErrorTxt" text="Duplicate List Name!" styleClass="errorText" visible="false"/>
+        </VBox>
+        <!-- list contents on right side -->
+        <VBox spacing="20" alignment="TOP_CENTER">
+            <ListView fx:id="itemsLw" prefHeight="500" prefWidth="500" disable="true" onEditCommit="#enableSave">
+                <placeholder>
+                    <Label fx:id="itemsPlaceholder" text="No List Selected"/>
+                </placeholder>
+            </ListView>
+            <HBox spacing="10" alignment="TOP_CENTER">
+                <TextField fx:id="newItemTf" onKeyPressed="#handleEnterItem" promptText="New Item" disable="true"/>
+                <Button fx:id="addItemBtn" text="Add" onAction="#handleAddItem" disable="true"/>
+                <Button fx:id="removeItemBtn" text="Remove" onAction="#handleRemoveItem" disable="true"/>
+            </HBox>
+        </VBox>
+    </HBox>
+    <!-- Save and exit buttons below -->
+    <HBox spacing="15" alignment="CENTER">
+        <Button fx:id="saveBtn" text="Save All" onAction="#saveProgram" disable="true" />
+        <Button text="Exit" onAction="#exitProgram"/>
+    </HBox>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</VBox>
